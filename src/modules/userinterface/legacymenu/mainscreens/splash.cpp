@@ -290,6 +290,7 @@ bool SplashScreen(bool (*fnBackWork)(void), bool (*fnOnClosed)(void), bool bInte
 
 	// Setup event loop callbacks.
 	GfuiApp().eventLoop().setRedisplayCB(splashDisplay);
+	GfuiApp().eventLoop().postRedisplay();
 	if (bInteractive)
 	{
 		GfuiApp().eventLoop().setKeyboardDownCB(splashKey);

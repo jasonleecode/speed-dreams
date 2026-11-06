@@ -118,6 +118,7 @@ SD_SETUP_SETTINGS_VERSION()
 # Sub-dirs to build ...					   
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(cmake)
+SD_ADD_SUBDIRECTORY(data)
 
 # After the user settings files have been collected,
 # Update (and then install) version.xml from their respective version.

@@ -221,12 +221,17 @@ void GfuiEventLoop::operator()()
 					injectJoystickButtonEvent(event.jbutton.which, event.jbutton.button, 0);
 					break;
 #endif
-				case SDL_WINDOWEVENT_EXPOSED:
+				case SDL_WINDOWEVENT:
+					if (event.window.event == SDL_WINDOWEVENT_EXPOSED
+						|| event.window.event == SDL_WINDOWEVENT_SHOWN
+						|| event.window.event == SDL_WINDOWEVENT_RESTORED)
+						postRedisplay();
+					break;
 #else
 				case SDL_VIDEOEXPOSE:
-#endif
 					forceRedisplay();
 					break;
+#endif
 			}
 		}
 
